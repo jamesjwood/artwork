@@ -40,5 +40,6 @@ module.exports = function(grunt) {
 
 grunt.loadNpmTasks('grunt-shell');
 
+grunt.registerTask('install', tasks);
 grunt.registerTask('default', tasks);
 };
