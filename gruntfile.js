@@ -6,12 +6,19 @@ var shell = {
         stdout: true,
         stderr: true,
         failOnError: true
+  },
+  png:{
+        command: 'qlmanage -t -s 1024 -o ./stage/ icon.svg;',
+        stdout: true,
+        stderr: true,
+        failOnError: true
   }
 };
-var tasks = ['shell:stage'];
+var tasks = ['shell:stage', 'shell:png'];
 
 sizes.map(function(size){
-  var command = 'qlmanage -t -s '+ size.toString() +' -o ./stage/ icon.svg; mv stage/icon.svg.png stage/icon'+ size.toString() +'.png';
+  var sizeS = size.toString();
+  var command = 'convert stage/icon.svg.png -resize ' +sizeS+'x' +sizeS+ ' stage/icon'+sizeS+'.png';
   shell['i' +size.toString()] = {
         command: command,
         stdout: true,
