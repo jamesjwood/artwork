@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         failOnError: true
       },
       png:{
-        command: '/Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png stage/icon.png -w 1024 -h 1024 icon.svg;  /Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png stage/splash.png -w 6400 -h 11360 splash.svg;/Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png stage/splashShort.png -w 640 -h 960 splashShort.svg;',
+        command: '/Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png stage/icon.png -w 1024 -h 1024 stage/icon.svg;',
         stdout: true,
         stderr: true,
         failOnError: true
@@ -50,7 +50,5 @@ grunt.loadNpmTasks('grunt-text-replace');
 
 grunt.loadNpmTasks('grunt-shell');
 
-
-grunt.registerTask('updateColours', ['replace:colours']);
-grunt.registerTask('default', ['shell:stage']);
+grunt.registerTask('default', ['shell:stage', 'replace:colours', 'shell:png']);
 };
