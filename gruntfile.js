@@ -1,4 +1,10 @@
 
+var bottomColour = '#39fc8e';
+var topColour = '#36fffb';
+
+var newBottomColour = '#39fc8e';
+var newTopColour = '#36fffb';
+
 
 module.exports = function(grunt) {
   "use strict";
@@ -27,16 +33,12 @@ module.exports = function(grunt) {
       }
     },
     replace:{
-      splash:{
-        src: ['icon.svg'],
-        dest: ['stage/gen_splash.svg'],
+      colours:{
+        src: ['*.svg'],
+        dest: ['stage/'],
         replacements: [
-          {from: 'width="2510"', to: 'width="634"'},
-          {from: 'height="2510"', to: 'height="1136"'},
-          {from: 'icon.svg', to: 'gen_splash.svg'},
-          {from: 'inkscape:cx="-168.01321"', to: 'inkscape:cx="295.57909"'},
-          {from: 'inkscape:zoom="0.14"', to: 'inkscape:zoom="0.3959798"'},
-          {from: 'gradientUnits="userSpaceOnUse"', to: 'gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.25498005,0,0,0.45258958,4782.9983,4015.2554)"'}
+          {from: bottomColour, to: newBottomColour},
+          {from: topColour, to: newTopColour},
         ]
       }
     }
@@ -48,5 +50,7 @@ grunt.loadNpmTasks('grunt-text-replace');
 
 grunt.loadNpmTasks('grunt-shell');
 
+
+grunt.registerTask('updateColours', ['replace:colours']);
 grunt.registerTask('default', ['shell:stage']);
 };
