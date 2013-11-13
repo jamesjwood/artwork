@@ -41,14 +41,15 @@ module.exports = function(grunt) {
           {from: topColour, to: newTopColour},
         ]
       }
+    },
+    bump: {
+        options: {},
+        files: [ 'package.json']
     }
-
   });
 
-
-grunt.loadNpmTasks('grunt-text-replace');
-
-grunt.loadNpmTasks('grunt-shell');
+require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
 grunt.registerTask('default', ['shell:stage', 'replace:colours', 'shell:png']);
+grunt.registerTask('test', ['default', 'bump']);
 };
