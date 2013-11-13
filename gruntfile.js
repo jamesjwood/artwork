@@ -22,16 +22,12 @@ module.exports = function(grunt) {
       stage:{
         command: 'rm -R stage; mkdir stage;',
         options:{
-          stdout: true,
-          stderr: true,
           failOnError: true
         }
       },
       png:{
         command: '/Applications/Inkscape.app/Contents/Resources/bin/inkscape --export-png stage/icon.png -w 1024 -h 1024 stage/icon.svg;',
         options:{
-          stdout: true,
-          stderr: true,
           failOnError: true
         }
       }
