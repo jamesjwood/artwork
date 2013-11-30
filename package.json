@@ -1,19 +1,18 @@
 {
-    "name": "artwork",
-    "version": "0.0.0-4",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "install": "grunt"
-    },
-    "author": "",
-    "license": "BSD-2-Clause",
-    "dependencies": {
-        "grunt": "0.4.x",
-        "grunt-shell": "0.5.x",
-        "grunt-text-replace": "0.3.x",
-        "matchdep": "0.3.x",
-        "grunt-bumpx": "0.1.x"
-    },
-    "devDependencies": {}
+  "name": "artwork",
+  "version": "0.0.0-6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "grunt": "0.4.x",
+    "grunt-shell": "0.5.x",
+    "grunt-text-replace": "0.3.x",
+    "matchdep": "0.3.x",
+    "grunt-bumpx": "0.1.x",
+    "grunt-bumpup": "0.4.x"
+  }
 }

@@ -9,6 +9,15 @@ var newTopColour = '#36fffb';
 module.exports = function(grunt) {
   "use strict";
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    bumpup: {
+      options: {
+        updateProps: {
+          pkg: 'package.json'
+        }
+      },
+      file: 'package.json'
+    },
     watch: {
       scripts: {
         files: ['./icon.svg'],
@@ -41,15 +50,13 @@ module.exports = function(grunt) {
           {from: topColour, to: newTopColour},
         ]
       }
-    },
-    bump: {
-        options: {},
-        files: [ 'package.json']
     }
   });
 
 require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
-grunt.registerTask('default', ['shell:stage', 'replace:colours', 'shell:png']);
-grunt.registerTask('test', ['default', 'bump']);
+grunt.registerTask('build', ['shell:stage', 'replace:colours', 'shell:png']);
+grunt.registerTask('test', ['build']);
+grunt.registerTask('development', ['build', 'bumpup:prerelease']);
+grunt.registerTask('production', ['build', 'bumpup:patch']);
 };
