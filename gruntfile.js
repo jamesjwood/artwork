@@ -57,6 +57,6 @@ require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
 
 grunt.registerTask('build', ['shell:stage', 'replace:colours', 'shell:png']);
 grunt.registerTask('test', ['build']);
-grunt.registerTask('development', ['build', 'bumpup:prerelease']);
-grunt.registerTask('production', ['build', 'bumpup:patch']);
+grunt.registerTask('development', ['build']);
+grunt.registerTask('production', ['build']);
 };
