@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {},
+  "repository": "https://github.com/jamesjwood/artwork.git",
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
