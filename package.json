@@ -1,6 +1,6 @@
 {
-  "name": "artwork",
-  "version": "0.0.5",
+  "name": "tsuju-artwork",
+  "version": "0.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {},

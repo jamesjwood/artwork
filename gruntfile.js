@@ -39,6 +39,12 @@ module.exports = function(grunt) {
         options:{
           failOnError: true
         }
+      },
+      publish:{
+        command: 'npm publish;',
+        stdout: true,
+        stderr: true,
+        failOnError: true
       }
     },
     replace:{
@@ -59,4 +65,5 @@ grunt.registerTask('build', ['shell:stage', 'replace:colours', 'shell:png']);
 grunt.registerTask('test', ['build']);
 grunt.registerTask('development', ['build']);
 grunt.registerTask('production', ['build']);
+  grunt.registerTask('publish', ['bumpup:patch', 'shell:publish']);
 };
